@@ -1,5 +1,5 @@
 # MSQNet
-Official implementation of "MSQNet: Actor-agnostic Action Recognition with Multi-modal Query." 
+Official implementation of "MSQNet: Actor-agnostic Action Recognition with Multi-modal Query", accepted at ICCV Workshops 2023.
 ## Authors
 [Anindya Mondal*](https://scholar.google.com/citations?user=qjQmNJMAAAAJ&hl=en), [Sauradip Nag*](https://sauradip.github.io/), [Joaquin M Prada](https://www.surrey.ac.uk/people/joaquin-m-prada), [Xiatian Zhu](https://surrey-uplab.github.io/), [Anjan Dutta*](https://sites.google.com/site/2adutta/).
 ## Leaderboard
