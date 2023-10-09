@@ -3,6 +3,7 @@ Official implementation of "Actor-agnostic Multi-label Action Recognition with M
 ## Authors
 [Anindya Mondal*](https://scholar.google.com/citations?user=qjQmNJMAAAAJ&hl=en), [Sauradip Nag*](https://sauradip.github.io/), [Joaquin M Prada](https://www.surrey.ac.uk/people/joaquin-m-prada), [Xiatian Zhu](https://surrey-uplab.github.io/), [Anjan Dutta*](https://sites.google.com/site/2adutta/).
 
+[[CVF Open Access]](https://openaccess.thecvf.com/content/ICCV2023W/NIVT/html/Mondal_Actor-Agnostic_Multi-Label_Action_Recognition_with_Multi-Modal_Query_ICCVW_2023_paper.html)
 [[Poster]](https://mondalanindya.github.io/assets/posters/ICCVW_23_poster.pdf)
 [[ArXiv]](https://arxiv.org/pdf/2307.10763.pdf)
 [[Video]](https://youtu.be/bafoEVdQYJg?si=s-b-_EKBlgAHy4Q7)
