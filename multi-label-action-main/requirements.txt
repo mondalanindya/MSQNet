@@ -1,0 +1,8 @@
+numpy
+Pillow
+git+https://github.com/ildoonet/pytorch-randaugment
+timm
+torch
+torcheval
+torchvision
+catalyst
