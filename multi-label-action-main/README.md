@@ -4,7 +4,7 @@ HMDB51 and Thumos 14 can be downloaded by following this [link](https://github.c
 # Running
 Install the necessary Python dependencies
 ```bash
-$ pip install requirements.txt
+$ pip install -r requirements.txt
 ```
 Then run the following 
 ```bash
