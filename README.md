@@ -16,4 +16,18 @@ Existing action recognition methods are typically actor-specific due to the intr
 ## Implementation
 Visit this [folder](https://github.com/mondalanindya/MSQNet/tree/main/multi-label-action-main) for implementation details.
 
+If you find our work useful, please consider citing:
+
+```
+
+@InProceedings{Mondal_2023_ICCV,
+    author    = {Mondal, Anindya and Nag, Sauradip and Prada, Joaquin M and Zhu, Xiatian and Dutta, Anjan},
+    title     = {Actor-Agnostic Multi-Label Action Recognition with Multi-Modal Query},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) Workshops},
+    month     = {October},
+    year      = {2023},
+    pages     = {784-794}
+}
+```
+
 
