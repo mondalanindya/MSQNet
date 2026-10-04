@@ -4,7 +4,19 @@ import itertools
 import numpy as np
 from .transforms_ss import *
 from torchvision.transforms import Compose
-from catalyst.data.sampler import DistributedSamplerWrapper
+try:
+    from catalyst.data.sampler import DistributedSamplerWrapper
+except ImportError:
+    class DistributedSamplerWrapper:
+        """Fallback wrapper when catalyst is not installed"""
+        def __init__(self, sampler, dataset=None, num_replicas=None, rank=None, shuffle=True):
+            self.sampler = sampler
+        def __iter__(self):
+            return iter(self.sampler)
+        def __len__(self):
+            return len(self.sampler)
+        def set_epoch(self, epoch):
+            pass
 from datasets.datasets import AnimalKingdom, Charades, Hockey, Thumos14, Volleyball
 from torch.utils.data import Dataset, DataLoader, RandomSampler, DistributedSampler
 # from pytorchvideo.transforms import ApplyTransformToKey, create_video_transform

@@ -1,13 +1,43 @@
-# Datasets
-HMDB51 and Thumos 14 can be downloaded by following this [link](https://github.com/open-mmlab/mmaction2). Animal Kingdom can be downloaded from [here](https://sutdcv.github.io/Animal-Kingdom/). Charades can be downloaded from [here](https://prior.allenai.org/projects/charades).
+# MSQNet Implementation Details
 
-# Running
-Install the necessary Python dependencies
+This directory contains the core model architectures, dataloaders, and training scripts for **MSQNet** (ICCVW 2023).
+
+For complete documentation, see the [main README](../README.md) and the [Project Webpage](https://mondalanindya.github.io/MSQNet/).
+
+## Datasets
+- **Animal Kingdom**: Download from [Animal Kingdom](https://sutdcv.github.io/Animal-Kingdom/)
+- **Charades**: Download from [AllenAI Charades](https://prior.allenai.org/projects/charades)
+- **HMDB51 & Thumos 14**: Download via [MMAction2](https://github.com/open-mmlab/mmaction2)
+- **Hockey**: Available through the Hockey dataset repository
+
+## Installation
 ```bash
-$ pip install -r requirements.txt
+pip install -r requirements.txt
 ```
-Then run the following 
+
+## Running
+
+### Single GPU Training
 ```bash
-$ python3 main.py --dataset [DATASET NAME] --model [MODEL NAME]  
+python main.py --dataset animalkingdom --model msqnet --data_dir /path/to/datasets --batch_size 16 --epochs 100 --train True
 ```
-Find more implementation details in the script main.py.
+
+### Multi-GPU Distributed Training
+```bash
+python dist_main.py --dataset animalkingdom --model msqnet --data_dir /path/to/datasets --batch_size 8 --distributed True
+```
+
+### Evaluation
+```bash
+python main.py --dataset animalkingdom --model msqnet --checkpoint /path/to/checkpoint.pth --train False
+```
+
+### Supported Models
+- `msqnet` (alias for `timesformerclipinitvideoguide`)
+- `timesformerclipinit` (text-only query)
+- `timesformer`
+- `query2labelclipinit`
+- `query2label`
+- `convit`
+- `videomae`
+- `adaptformer`

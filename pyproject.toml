@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "msqnet"
+version = "1.0.0"
+authors = [
+  { name="Anindya Mondal", email="anindyam.jan@gmail.com" },
+  { name="Sauradip Nag" },
+  { name="Joaquin M Prada" },
+  { name="Xiatian Zhu" },
+  { name="Anjan Dutta" }
+]
+description = "Official implementation of MSQNet: Actor-Agnostic Multi-Label Action Recognition with Multi-Modal Query (ICCVW 2023)"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { file = "LICENSE" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "torch>=1.12.0",
+    "torchvision>=0.13.0",
+    "transformers>=4.25.0",
+    "timm>=0.6.12",
+    "torchmetrics>=0.11.0",
+    "scipy>=1.9.0",
+    "numpy>=1.21.0",
+    "Pillow>=9.0.0",
+    "opencv-python>=4.5.0",
+    "wget>=3.2",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/mondalanindya/MSQNet"
+"Paper" = "https://openaccess.thecvf.com/content/ICCV2023W/NIVT/html/Mondal_Actor-Agnostic_Multi-Label_Action_Recognition_with_Multi-Modal_Query_ICCVW_2023_paper.html"
+"ArXiv" = "https://arxiv.org/abs/2307.10763"

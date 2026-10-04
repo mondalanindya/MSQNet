@@ -1,0 +1,13 @@
+# Location configuration template for MSQNet
+# Copy this file to location.cfg and adjust paths to your local storage.
+# You can also override dataset paths via the CLI flag: --data_dir /path/to/datasets
+# or via environment variable: export MSQNET_DATA_DIR=/path/to/datasets
+
+[DEFAULT]
+path_dataset = ./datasets
+path_aux = ./checkpoints
+
+# Example workstation config (matched automatically by socket.gethostname()):
+# [my-workstation-hostname]
+# path_dataset = /media/data/action_datasets
+# path_aux = /media/data/experiments

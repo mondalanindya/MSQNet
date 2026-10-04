@@ -1,0 +1,69 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyTorch checkpoints and models
+*.pt
+*.pth
+*.bin
+*.ckpt
+checkpoints/
+checkpoint/
+weights/
+
+# Downloaded Datasets and video media (root only, preserve code in datasets/)
+/datasets/
+/data/
+*.avi
+*.mp4
+*.mkv
+*.tar
+*.tar.gz
+*.zip
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Logs and outputs
+logs/
+*.log
+runs/
+wandb/

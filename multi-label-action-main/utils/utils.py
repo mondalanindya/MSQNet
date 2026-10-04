@@ -37,11 +37,47 @@ class AverageMeter(object):
         self.count += n
         self.avg = self.sum / self.count
 
-def read_config():
-    config = cp.ConfigParser()
+def read_config(section=None):
+    """
+    Reads configuration from location.cfg with robust fallbacks:
+    1. Checks environment variable MSQNET_DATA_DIR or DATASET_PATH
+    2. Matches hostname in location.cfg
+    3. Falls back to [DEFAULT] section in location.cfg
+    4. Falls back to default paths (./datasets, ./checkpoints)
+    """
     cur_path = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-    config.read(os.path.join(cur_path, 'location.cfg'))
-    host = socket.gethostname()
+    cfg_file = os.path.join(cur_path, 'location.cfg')
+    if not os.path.exists(cfg_file):
+        example_cfg = os.path.join(cur_path, 'location.cfg.example')
+        if os.path.exists(example_cfg):
+            cfg_file = example_cfg
+
+    config = cp.ConfigParser()
+    if os.path.exists(cfg_file):
+        config.read(cfg_file)
+
+    host = section or socket.gethostname()
     if host[:3] == 'dgk':
         host = 'jade2'
-    return config[host]
+
+    resolved = {}
+    if host in config:
+        resolved = dict(config[host])
+    elif 'DEFAULT' in config and config['DEFAULT']:
+        resolved = dict(config['DEFAULT'])
+    else:
+        resolved = {
+            'path_dataset': os.path.join(cur_path, 'datasets'),
+            'path_aux': os.path.join(cur_path, 'checkpoints')
+        }
+
+    # Environment variables take precedence if present
+    env_data_dir = os.environ.get('MSQNET_DATA_DIR') or os.environ.get('DATASET_PATH')
+    if env_data_dir:
+        resolved['path_dataset'] = env_data_dir
+
+    env_aux_dir = os.environ.get('MSQNET_AUX_DIR') or os.environ.get('CHECKPOINT_PATH')
+    if env_aux_dir:
+        resolved['path_aux'] = env_aux_dir
+
+    return resolved
