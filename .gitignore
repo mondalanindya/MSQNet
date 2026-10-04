@@ -36,6 +36,8 @@ weights/
 /data/
 *.avi
 *.mp4
+!figs/*.mp4
+!docs/figs/*.mp4
 *.mkv
 *.tar
 *.tar.gz
