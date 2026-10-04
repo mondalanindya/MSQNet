@@ -18,6 +18,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
+  <!-- KaTeX for beautiful LaTeX math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\\[', right: '\\]', display: true}, {left: '\\(', right: '\\)', display: false}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
+
   <style>
     :root {
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -761,8 +767,11 @@
         <div class="card">
           <h4 style="color: var(--color-primary); margin-bottom: 0.5rem; font-size: 1.1rem;">2. Multimodal Query Encoder</h4>
           <p style="color: var(--color-text-muted); font-size: 0.925rem;">
-            Instead of standard random query vectors, label queries \(\mathcal{Q}_l \in \mathbb{R}^{K \times D}\) are initialized with CLIP text representations of class names and concatenated with CLIP video features \(\mathcal{Q}_v\) through a projection layer: \(\mathcal{Q}_0 = \mathbf{W}_\text{que}[\mathcal{Q}_l, \mathcal{Q}_v]\).
+            Instead of standard random query vectors, label queries \(\mathcal{Q}_l \in \mathbb{R}^{K \times D}\) are initialized with CLIP text representations of class names and concatenated with CLIP video features \(\mathcal{Q}_v\) through a projection layer:
           </p>
+          <div style="margin: 0.75rem 0; text-align: center; font-size: 1.05rem; color: var(--color-text);">
+            \[ \mathcal{Q}_0 = \mathbf{W}_\text{que}[\mathcal{Q}_l, \mathcal{Q}_v] \]
+          </div>
         </div>
         <div class="card">
           <h4 style="color: var(--color-primary); margin-bottom: 0.5rem; font-size: 1.1rem;">3. Multimodal Transformer Decoder</h4>
@@ -1334,6 +1343,23 @@ python multi-label-action-main/utility/create_dummy_dataset.py --output ./datase
         document.body.style.overflow = '';
       }
     });
+
+    // Ensure KaTeX renders across all browser states
+    function triggerMathRender() {
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '\\[', right: '\\]', display: true},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false
+        });
+      }
+    }
+    document.addEventListener('DOMContentLoaded', triggerMathRender);
+    window.addEventListener('load', triggerMathRender);
   </script>
 </body>
 </html>
